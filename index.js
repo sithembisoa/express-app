@@ -15,16 +15,24 @@ app.get('/',(req, res)=>
     res.json(data)
 );
 
+app.get('/item/:id', (req, res) => {
+    console.log(req.params.id);
+    let user = Number(req.params.id);
+    console.log(user);
+    console.log(data[user]);
+    res.send(data[user]);
+});
+
 app.post('/newItem' ,(req, res)=>
     res.send(`a post request /newItem on PORT ${PORT}`)
 );
 
-app.put('/newItem:itemID' ,(req, res)=>
-    res.send(`a put request /newItem:itemID on PORT ${PORT}`)
+app.put('/item' ,(req, res)=>
+    res.send(`a put request /item on PORT ${PORT}`)
 );
 
-app.delete('/newItem:itemID' ,(req, res)=>
-    res.send(`a delete request /newItem:itemID on PORT ${PORT}`)
+app.delete('/item' ,(req, res)=>
+    res.send(`a delete request /item on PORT ${PORT}`)
 );
 
 app.listen(PORT, () => {
